@@ -670,5 +670,26 @@
     "command": "python scripts/cleanroom_live.py",
     "path": "evidence\\direct-screenshots\\task17-1793292819299450200-09.png",
     "exit_code": 0
+  },
+  {
+    "task": 19,
+    "title": "Push final source, evidence and dataset version tags",
+    "command": "& 'C:\\Program Files\\GitHub CLI\\gh.exe' auth setup-git; git add .gitignore README.md scripts evidence/commands.jsonl evidence/published.json evidence/github.json evidence/direct_commands.jsonl evidence/direct_screenshots.json; git commit -m 'Add original terminal screenshots workflow and verified final evidence'; git push -u origin main; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; git push origin --tags; git ls-remote --heads --tags origin",
+    "path": "evidence\\direct-screenshots\\task19-1793292932834142300-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 19,
+    "title": "Push final source, evidence and dataset version tags",
+    "command": "& 'C:\\Program Files\\GitHub CLI\\gh.exe' auth setup-git; git add .gitignore README.md scripts evidence/commands.jsonl evidence/published.json evidence/github.json evidence/direct_commands.jsonl evidence/direct_screenshots.json; git commit -m 'Add original terminal screenshots workflow and verified final evidence'; git push -u origin main; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; git push origin --tags; git ls-remote --heads --tags origin",
+    "path": "evidence\\direct-screenshots\\task19-1793292932834142300-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 19,
+    "title": "Fresh public GitHub clone restores DVC data and passes tests",
+    "command": "git clone https://github.com/Asadr9671/containerizing-ml-prediction-service-docker-compose-hub-dvc.git ../.tools/github-final-check; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; Push-Location ../.tools/github-final-check; dvc pull; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; dvc repro; python -m pytest -q -p no:cacheprovider tests; $result=$LASTEXITCODE; Pop-Location; exit $result",
+    "path": "evidence\\direct-screenshots\\task19-1793293030900855700-01.png",
+    "exit_code": 0
   }
 ]

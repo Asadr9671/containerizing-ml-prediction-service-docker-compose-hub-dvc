@@ -74,7 +74,7 @@ notes={
 15:'The counter survived down/up because Redis AOF data remained in the named volume. Removing that volume with down -v reset the counter to zero on the next startup.',
 16:'The production image, repository overview and publishing instructions are prepared. Actual public push, tag equality and Docker Hub username screenshots require account authentication.',
 17:'The no-build Hub Compose file is prepared. Registry pull into an empty directory, unauthenticated access and digest matching cannot be claimed until the image is published.'}
-notes[19]='The local source repository contains the required architecture and incremental commits for all six milestones. A fresh local clone restored all DVC objects, passed nine tests, built the image and served a prediction. '+('GitHub publication is verified.' if github_published else 'Public GitHub publication remains pending account authorization; the profile URL alone does not provide write access.')
+notes[19]='The source repository contains the required architecture and incremental commits for all six milestones. A fresh local clone restored all DVC objects, passed nine tests, built the image and served a prediction. A subsequent fresh clone from the public GitHub repository also restored DVC data and passed all nine tests. '+('GitHub publication is verified.' if github_published else 'Public GitHub publication remains pending account authorization; the profile URL alone does not provide write access.')
 if published:
     release=json.loads((EVIDENCE/'published.json').read_text())
     notes[16]='Public repository asad3390/breast-cancer-triage-api contains 1.0.0 and latest with identical digests. The overview documents the service, tags, standalone and Compose usage, environment variables and port.'
