@@ -1,0 +1,32 @@
+name: mlops-a02
+services:
+  api:
+    image: ${DOCKERHUB_USERNAME:-local}/breast-cancer-triage-api:${IMAGE_TAG:-1.0.0}
+    build:
+      context: .
+      args:
+        MODEL_VERSION: ${MODEL_VERSION:-1.0.0}
+        GIT_SHA: ${GIT_SHA:-local}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    environment:
+      MODEL_PATH: ${MODEL_PATH:-artifacts/model.joblib}
+      DECISION_THRESHOLD: ${DECISION_THRESHOLD:-0.5}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      REDIS_HOST: redis
+      REDIS_PORT: ${REDIS_PORT:-6379}
+    depends_on:
+      redis:
+        condition: service_healthy
+  redis:
+    image: redis:7.4.2-alpine
+    command: ["redis-server", "--appendonly", "yes", "--appendfsync", "always"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
+volumes:
+  redis-data:

@@ -1,0 +1,23 @@
+import json
+from evidence import ROOT, run, docker, py
+
+sha = run(14, ['git', 'rev-parse', 'HEAD']).strip()
+env = (ROOT/'.env.example').read_text().replace('GIT_SHA=local', f'GIT_SHA={sha}')
+(ROOT/'.env').write_text(env)
+docker(14, 'compose', 'config')
+docker(15, 'compose', 'up', '-d', '--build', '--wait')
+docker(15, 'compose', 'ps')
+py(13, "import urllib.request,json; from pathlib import Path; base='http://localhost:8000'; before=json.load(urllib.request.urlopen(base+'/stats'))['predictions']; print('Before:',before); payload=Path('sample.json').read_bytes(); responses=[json.load(urllib.request.urlopen(urllib.request.Request(base+'/predict',data=payload,headers={'Content-Type':'application/json'}))) for _ in range(3)]; print(json.dumps(responses,indent=2)); after=json.load(urllib.request.urlopen(base+'/stats'))['predictions']; print('After:',after); assert after==before+3; Path('evidence/counter.json').write_text(json.dumps({'expected':after}))")
+docker(13, 'compose', 'stop', 'redis')
+py(13, "import urllib.request; from pathlib import Path; print('Redis stopped: health=',urllib.request.urlopen('http://localhost:8000/health').read().decode()); r=urllib.request.urlopen(urllib.request.Request('http://localhost:8000/predict',data=Path('sample.json').read_bytes(),headers={'Content-Type':'application/json'})); print('Prediction while Redis stopped:',r.status,r.read().decode()); assert r.status==200")
+docker(13, 'compose', 'logs', '--tail', '15', 'api')
+docker(13, 'compose', 'start', 'redis')
+docker(15, 'compose', 'down')
+docker(15, 'compose', 'up', '-d', '--wait')
+py(15, "import urllib.request,json; from pathlib import Path; expected=json.loads(Path('evidence/counter.json').read_text())['expected']; actual=json.load(urllib.request.urlopen('http://localhost:8000/stats'))['predictions']; print('After down/up:',actual,'expected:',expected); assert actual==expected")
+docker(15, 'compose', 'down', '-v')
+docker(15, 'compose', 'up', '-d', '--wait')
+py(15, "import urllib.request,json; result=json.load(urllib.request.urlopen('http://localhost:8000/stats')); print('After down -v/up:',result); assert result['predictions']==0")
+docker(15, 'compose', 'ps')
+run(15, ['git', 'add', 'docker-compose.yml', 'docker-compose.hub.yml', '.env.example', 'scripts/milestone4.py'])
+run(15, ['git', 'commit', '-m', 'Milestone 4: verify Redis counting, outage tolerance and volume persistence'])
