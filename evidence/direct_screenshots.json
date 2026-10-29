@@ -1,0 +1,674 @@
+[
+  {
+    "task": 1,
+    "title": "Docker client and engine versions",
+    "command": "docker version",
+    "path": "evidence\\direct-screenshots\\task01-1793291820533062500-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "Docker client and engine versions",
+    "command": "docker version",
+    "path": "evidence\\direct-screenshots\\task01-1793291882036636600-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "Docker client and engine versions",
+    "command": "docker version",
+    "path": "evidence\\direct-screenshots\\task01-1793291882036636600-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 19,
+    "title": "Create and publish public GitHub source repository",
+    "command": "& 'C:\\Program Files\\GitHub CLI\\gh.exe' repo create Asadr9671/containerizing-ml-prediction-service-docker-compose-hub-dvc --public --source . --remote origin --push",
+    "path": "evidence\\direct-screenshots\\task19-1793292102030531000-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 19,
+    "title": "Public repository and incremental milestone history",
+    "command": "& 'C:\\Program Files\\GitHub CLI\\gh.exe' repo view --json name,url,visibility; git log --oneline -8",
+    "path": "evidence\\direct-screenshots\\task19-1793292118776087200-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "Docker client and engine",
+    "command": "docker version",
+    "path": "evidence\\direct-screenshots\\task01-1793292156374567100-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "Docker client and engine",
+    "command": "docker version",
+    "path": "evidence\\direct-screenshots\\task01-1793292156374567100-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "Run hello-world twice",
+    "command": "docker run --rm hello-world:linux; docker run --rm hello-world:linux",
+    "path": "evidence\\direct-screenshots\\task01-1793292158432795900-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "Run hello-world twice",
+    "command": "docker run --rm hello-world:linux; docker run --rm hello-world:linux",
+    "path": "evidence\\direct-screenshots\\task01-1793292158432795900-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "Run hello-world twice",
+    "command": "docker run --rm hello-world:linux; docker run --rm hello-world:linux",
+    "path": "evidence\\direct-screenshots\\task01-1793292158432795900-03.png",
+    "exit_code": 0
+  },
+  {
+    "task": 2,
+    "title": "nginx background service and host response",
+    "command": "docker run -d --name a02-proof-nginx1 -p 18080:80 nginx:1.28.0-alpine; Start-Sleep 2; (Invoke-WebRequest -UseBasicParsing http://localhost:18080).StatusCode",
+    "path": "evidence\\direct-screenshots\\task02-1793292161942237300-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 2,
+    "title": "Expected occupied-port failure",
+    "command": "docker run -d --name a02-proof-conflict -p 18080:80 nginx:1.28.0-alpine",
+    "path": "evidence\\direct-screenshots\\task02-1793292165704426900-01.png",
+    "exit_code": 1
+  },
+  {
+    "task": 2,
+    "title": "Use a different port and inspect access logs",
+    "command": "docker rm a02-proof-conflict; docker run -d --name a02-proof-nginx2 -p 18081:80 nginx:1.28.0-alpine; 1..3 | ForEach-Object { (Invoke-WebRequest -UseBasicParsing http://localhost:18080).StatusCode }; docker logs --tail 8 a02-proof-nginx1; docker ps --filter name=a02-proof-nginx",
+    "path": "evidence\\direct-screenshots\\task02-1793292167262860900-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 2,
+    "title": "Use a different port and inspect access logs",
+    "command": "docker rm a02-proof-conflict; docker run -d --name a02-proof-nginx2 -p 18081:80 nginx:1.28.0-alpine; 1..3 | ForEach-Object { (Invoke-WebRequest -UseBasicParsing http://localhost:18080).StatusCode }; docker logs --tail 8 a02-proof-nginx1; docker ps --filter name=a02-proof-nginx",
+    "path": "evidence\\direct-screenshots\\task02-1793292167262860900-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 2,
+    "title": "Stop, list stopped, restart and safely remove",
+    "command": "docker stop a02-proof-nginx1; docker ps -a --filter name=a02-proof-nginx; docker start a02-proof-nginx1; docker stop a02-proof-nginx1 a02-proof-nginx2; docker rm a02-proof-nginx1 a02-proof-nginx2",
+    "path": "evidence\\direct-screenshots\\task02-1793292170191806000-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 3,
+    "title": "Pull two Redis versions and compare sizes",
+    "command": "docker pull redis:7.4.2; docker pull redis:7.4.2-alpine; docker image ls redis",
+    "path": "evidence\\direct-screenshots\\task03-1793292172755369100-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 3,
+    "title": "Ubuntu exits without an interactive command",
+    "command": "docker run --name a02-proof-ubuntu ubuntu:22.04; docker ps -a --filter name=a02-proof-ubuntu",
+    "path": "evidence\\direct-screenshots\\task03-1793292180737547900-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 3,
+    "title": "Expected image-in-use removal error",
+    "command": "docker rmi ubuntu:22.04",
+    "path": "evidence\\direct-screenshots\\task03-1793292186171886400-01.png",
+    "exit_code": 1
+  },
+  {
+    "task": 3,
+    "title": "Safe removal order",
+    "command": "docker rm a02-proof-ubuntu; docker rmi ubuntu:22.04",
+    "path": "evidence\\direct-screenshots\\task03-1793292187354899200-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 4,
+    "title": "Expected unconfigured PostgreSQL failure",
+    "command": "docker run --name a02-proof-pg-fail postgres:16.8-alpine",
+    "path": "evidence\\direct-screenshots\\task04-1793292188669317400-01.png",
+    "exit_code": 1
+  },
+  {
+    "task": 4,
+    "title": "Configure PostgreSQL and connect with psql",
+    "command": "docker logs a02-proof-pg-fail; docker run -d --name a02-proof-pg -e POSTGRES_PASSWORD=assignment-local-demo -e POSTGRES_USER=student -e POSTGRES_DB=lab postgres:16.8-alpine; Start-Sleep 8; docker exec a02-proof-pg psql -U student -d lab -c \"SELECT current_user, current_database();\"",
+    "path": "evidence\\direct-screenshots\\task04-1793292190333342400-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 4,
+    "title": "Host bind mount changes without container restart",
+    "command": "Set-Content evidence/webroot/index.html '<h1>Original bind-mounted page</h1>'; (Invoke-WebRequest -UseBasicParsing http://localhost:18082).Content; Set-Content evidence/webroot/index.html '<h1>Updated live without restart</h1>'; (Invoke-WebRequest -UseBasicParsing http://localhost:18082).Content; docker inspect --format '{{.State.StartedAt}}' a02-bind",
+    "path": "evidence\\direct-screenshots\\task04-1793292200045189900-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 4,
+    "title": "Clean up temporary database exercise containers",
+    "command": "docker stop a02-proof-pg; docker rm a02-proof-pg a02-proof-pg-fail",
+    "path": "evidence\\direct-screenshots\\task04-1793292201380365600-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 5,
+    "title": "DVC tracking, remote and Git exclusion",
+    "command": "dvc root; dvc remote list; Get-Content data/raw/breast_cancer.csv.dvc; git ls-files data/raw; git check-ignore data/raw/breast_cancer.csv; dvc push data/raw/breast_cancer.csv.dvc",
+    "path": "evidence\\direct-screenshots\\task05-1793292250489507600-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 5,
+    "title": "Restore working dataset with dvc pull",
+    "command": "Remove-Item -LiteralPath data/raw/breast_cancer.csv; dvc pull data/raw/breast_cancer.csv.dvc; python -c \"import pandas as pd; d=pd.read_csv('data/raw/breast_cancer.csv'); print('Rows:',len(d),'Features:',len(d.columns)-1,'Nulls:',d.isna().sum().sum())\"",
+    "path": "evidence\\direct-screenshots\\task05-1793292254951693500-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 6,
+    "title": "Restore original 569-row dataset",
+    "command": "git checkout data-v1 -- data/raw/breast_cancer.csv.dvc; dvc checkout data/raw/breast_cancer.csv.dvc; python -c \"import pandas as pd; print(len(pd.read_csv('data/raw/breast_cancer.csv')))\"",
+    "path": "evidence\\direct-screenshots\\task06-1793292257483227800-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 6,
+    "title": "Restore corrected 539-row dataset",
+    "command": "git checkout data-v2 -- data/raw/breast_cancer.csv.dvc; dvc checkout data/raw/breast_cancer.csv.dvc; python -c \"import pandas as pd; print(len(pd.read_csv('data/raw/breast_cancer.csv')))\"",
+    "path": "evidence\\direct-screenshots\\task06-1793292259728190100-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 7,
+    "title": "Train both model families and enforce recall gate",
+    "command": "python -m training.train",
+    "path": "evidence\\direct-screenshots\\task07-1793292262064456000-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 7,
+    "title": "Train both model families and enforce recall gate",
+    "command": "python -m training.train",
+    "path": "evidence\\direct-screenshots\\task07-1793292262064456000-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 8,
+    "title": "Execute pipeline then demonstrate unchanged skip",
+    "command": "dvc repro --force; dvc repro",
+    "path": "evidence\\direct-screenshots\\task08-1793292267278190800-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 8,
+    "title": "Execute pipeline then demonstrate unchanged skip",
+    "command": "dvc repro --force; dvc repro",
+    "path": "evidence\\direct-screenshots\\task08-1793292267278190800-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 8,
+    "title": "Execute pipeline then demonstrate unchanged skip",
+    "command": "dvc repro --force; dvc repro",
+    "path": "evidence\\direct-screenshots\\task08-1793292267278190800-03.png",
+    "exit_code": 0
+  },
+  {
+    "task": 8,
+    "title": "Hyperparameter change invalidates the pipeline",
+    "command": "(Get-Content params.yaml -Raw).Replace('n_estimators: 160','n_estimators: 161') | Set-Content -Encoding ascii params.yaml; dvc repro",
+    "path": "evidence\\direct-screenshots\\task08-1793292274633120500-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 8,
+    "title": "Hyperparameter change invalidates the pipeline",
+    "command": "(Get-Content params.yaml -Raw).Replace('n_estimators: 160','n_estimators: 161') | Set-Content -Encoding ascii params.yaml; dvc repro",
+    "path": "evidence\\direct-screenshots\\task08-1793292274633120500-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 8,
+    "title": "Hyperparameter change invalidates the pipeline",
+    "command": "(Get-Content params.yaml -Raw).Replace('n_estimators: 160','n_estimators: 161') | Set-Content -Encoding ascii params.yaml; dvc repro",
+    "path": "evidence\\direct-screenshots\\task08-1793292274633120500-03.png",
+    "exit_code": 0
+  },
+  {
+    "task": 8,
+    "title": "Restore submitted hyperparameters and model",
+    "command": "git restore params.yaml; dvc repro; dvc push",
+    "path": "evidence\\direct-screenshots\\task08-1793292280882994100-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 9,
+    "title": "API contract, validation and outage tests",
+    "command": "python -m pytest -q -p no:cacheprovider tests; python scripts/probe_api.py --url http://localhost:8000",
+    "path": "evidence\\direct-screenshots\\task09-1793292283652666000-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 10,
+    "title": "Rebuild working Ubuntu baseline",
+    "command": "docker build --progress=plain -f Dockerfile.naive -t asad3390/breast-cancer-triage-api:naive-proof .",
+    "path": "evidence\\direct-screenshots\\task10-1793292335114211300-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 10,
+    "title": "Rebuild working Ubuntu baseline",
+    "command": "docker build --progress=plain -f Dockerfile.naive -t asad3390/breast-cancer-triage-api:naive-proof .",
+    "path": "evidence\\direct-screenshots\\task10-1793292335114211300-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 10,
+    "title": "Baseline image measurement and archived cold benchmark",
+    "command": "docker image inspect --format 'Size={{.Size}} User={{.Config.User}}' asad3390/breast-cancer-triage-api:naive-proof; Get-Content evidence/build_comparison.json",
+    "path": "evidence\\direct-screenshots\\task10-1793292418954751600-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 10,
+    "title": "Baseline image measurement and archived cold benchmark",
+    "command": "docker image inspect --format 'Size={{.Size}} User={{.Config.User}}' asad3390/breast-cancer-triage-api:naive-proof; Get-Content evidence/build_comparison.json",
+    "path": "evidence\\direct-screenshots\\task10-1793292452468114100-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 11,
+    "title": "Build production image from restored DVC data",
+    "command": "dvc pull; docker build --progress=plain --build-arg MODEL_VERSION=1.0.0 --build-arg GIT_SHA=eaf11d64f2d498066217f734279554f4fc0115ec -t a02-proof-production:1.0.0 .",
+    "path": "evidence\\direct-screenshots\\task11-1793292454101799600-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 11,
+    "title": "Build production image from restored DVC data",
+    "command": "dvc pull; docker build --progress=plain --build-arg MODEL_VERSION=1.0.0 --build-arg GIT_SHA=eaf11d64f2d498066217f734279554f4fc0115ec -t a02-proof-production:1.0.0 .",
+    "path": "evidence\\direct-screenshots\\task11-1793292454101799600-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 11,
+    "title": "Build production image from restored DVC data",
+    "command": "dvc pull; docker build --progress=plain --build-arg MODEL_VERSION=1.0.0 --build-arg GIT_SHA=eaf11d64f2d498066217f734279554f4fc0115ec -t a02-proof-production:1.0.0 .",
+    "path": "evidence\\direct-screenshots\\task11-1793292454101799600-03.png",
+    "exit_code": 0
+  },
+  {
+    "task": 11,
+    "title": "Application edit reuses dependency layers",
+    "command": "Add-Content app/main.py '# Direct screenshot cache verification'; docker build --progress=plain --build-arg MODEL_VERSION=1.0.0 --build-arg GIT_SHA=eaf11d64f2d498066217f734279554f4fc0115ec -t a02-proof-production:1.0.0 .; git restore app/main.py",
+    "path": "evidence\\direct-screenshots\\task11-1793292460291204800-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 11,
+    "title": "Application edit reuses dependency layers",
+    "command": "Add-Content app/main.py '# Direct screenshot cache verification'; docker build --progress=plain --build-arg MODEL_VERSION=1.0.0 --build-arg GIT_SHA=eaf11d64f2d498066217f734279554f4fc0115ec -t a02-proof-production:1.0.0 .; git restore app/main.py",
+    "path": "evidence\\direct-screenshots\\task11-1793292460291204800-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 11,
+    "title": "Application edit reuses dependency layers",
+    "command": "Add-Content app/main.py '# Direct screenshot cache verification'; docker build --progress=plain --build-arg MODEL_VERSION=1.0.0 --build-arg GIT_SHA=eaf11d64f2d498066217f734279554f4fc0115ec -t a02-proof-production:1.0.0 .; git restore app/main.py",
+    "path": "evidence\\direct-screenshots\\task11-1793292460291204800-03.png",
+    "exit_code": 0
+  },
+  {
+    "task": 12,
+    "title": "Standalone container, prediction and runtime metadata",
+    "command": "docker run -d --name a02-proof-standalone -p 18000:8000 a02-proof-production:1.0.0; Start-Sleep 12; python scripts/probe_api.py --url http://localhost:18000",
+    "path": "evidence\\direct-screenshots\\task12-1793292464364887600-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 12,
+    "title": "Healthy, non-root, correct port and healthcheck",
+    "command": "docker inspect --format '{{.State.Health.Status}}' a02-proof-standalone; docker image inspect --format 'User={{.Config.User}} Ports={{json .Config.ExposedPorts}} Health={{json .Config.Healthcheck}}' a02-proof-production:1.0.0; docker exec a02-proof-standalone id; docker logs --tail 8 a02-proof-standalone; docker history a02-proof-production:1.0.0",
+    "path": "evidence\\direct-screenshots\\task12-1793292478150534000-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 12,
+    "title": "Healthy, non-root, correct port and healthcheck",
+    "command": "docker inspect --format '{{.State.Health.Status}}' a02-proof-standalone; docker image inspect --format 'User={{.Config.User}} Ports={{json .Config.ExposedPorts}} Health={{json .Config.Healthcheck}}' a02-proof-production:1.0.0; docker exec a02-proof-standalone id; docker logs --tail 8 a02-proof-standalone; docker history a02-proof-production:1.0.0",
+    "path": "evidence\\direct-screenshots\\task12-1793292478150534000-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 12,
+    "title": "Same image with a different threshold",
+    "command": "docker run -d --name a02-proof-config -p 18001:8000 -e DECISION_THRESHOLD=0.99 -e LOG_LEVEL=DEBUG a02-proof-production:1.0.0; Start-Sleep 8; python scripts/probe_api.py --url http://localhost:18001 --threshold 0.99; docker logs --tail 5 a02-proof-config",
+    "path": "evidence\\direct-screenshots\\task12-1793292480370494400-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 12,
+    "title": "Same image with a different threshold",
+    "command": "docker run -d --name a02-proof-config -p 18001:8000 -e DECISION_THRESHOLD=0.99 -e LOG_LEVEL=DEBUG a02-proof-production:1.0.0; Start-Sleep 8; python scripts/probe_api.py --url http://localhost:18001 --threshold 0.99; docker logs --tail 5 a02-proof-config",
+    "path": "evidence\\direct-screenshots\\task12-1793292480370494400-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 5,
+    "title": "Repeat DVC initialization and first data push in isolated demo",
+    "command": "New-Item -ItemType Directory -Force '../.tools/dvc-init-demo' | Out-Null; Push-Location '../.tools/dvc-init-demo'; git init; dvc init; python 'E:\\mlops ass 2\\breast-cancer-triage-service\\training\\prepare_data.py' --version 1; dvc add data/raw/breast_cancer.csv; dvc remote add -d localstore dvc-remote; dvc push; git add .dvc .dvcignore data/raw/.gitignore data/raw/breast_cancer.csv.dvc dvc-remote; git ls-files data/raw; Pop-Location",
+    "path": "evidence\\direct-screenshots\\task05-1793292504507178100-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 5,
+    "title": "Repeat DVC initialization and first data push in isolated demo",
+    "command": "New-Item -ItemType Directory -Force '../.tools/dvc-init-demo' | Out-Null; Push-Location '../.tools/dvc-init-demo'; git init; dvc init; python 'E:\\mlops ass 2\\breast-cancer-triage-service\\training\\prepare_data.py' --version 1; dvc add data/raw/breast_cancer.csv; dvc remote add -d localstore dvc-remote; dvc push; git add .dvc .dvcignore data/raw/.gitignore data/raw/breast_cancer.csv.dvc dvc-remote; git ls-files data/raw; Pop-Location",
+    "path": "evidence\\direct-screenshots\\task05-1793292504507178100-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 12,
+    "title": "Verify runtime excludes dataset and training-only packages",
+    "command": "docker exec a02-proof-standalone python -c \"import os,importlib.util; print('uid:',os.getuid()); print('Dataset present:',os.path.exists('/app/data')); print('pandas:',importlib.util.find_spec('pandas')); print('yaml:',importlib.util.find_spec('yaml')); assert os.getuid()!=0; assert not os.path.exists('/app/data'); assert importlib.util.find_spec('pandas') is None; assert importlib.util.find_spec('yaml') is None\"",
+    "path": "evidence\\direct-screenshots\\task12-1793292511672874600-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 14,
+    "title": "Compose configuration and healthy startup",
+    "command": "$env:API_PORT='18004'; docker compose -p a02-direct config; docker compose -p a02-direct up -d --build --wait; docker compose -p a02-direct ps",
+    "path": "evidence\\direct-screenshots\\task14-1793292524472239700-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 14,
+    "title": "Compose configuration and healthy startup",
+    "command": "$env:API_PORT='18004'; docker compose -p a02-direct config; docker compose -p a02-direct up -d --build --wait; docker compose -p a02-direct ps",
+    "path": "evidence\\direct-screenshots\\task14-1793292524472239700-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 14,
+    "title": "Compose configuration and healthy startup",
+    "command": "$env:API_PORT='18004'; docker compose -p a02-direct config; docker compose -p a02-direct up -d --build --wait; docker compose -p a02-direct ps",
+    "path": "evidence\\direct-screenshots\\task14-1793292524472239700-03.png",
+    "exit_code": 0
+  },
+  {
+    "task": 13,
+    "title": "Counter increases for three predictions",
+    "command": "$before=(Invoke-RestMethod http://localhost:18004/stats).predictions; Write-Output \"Before: $before\"; 1..3 | ForEach-Object { Invoke-RestMethod -Uri http://localhost:18004/predict -Method Post -ContentType application/json -InFile sample.json | ConvertTo-Json -Compress }; $after=(Invoke-RestMethod http://localhost:18004/stats).predictions; Write-Output \"After: $after\"; if($after -ne $before+3){exit 1}; $after | Set-Content evidence/direct-count.txt",
+    "path": "evidence\\direct-screenshots\\task13-1793292540290711500-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 13,
+    "title": "Redis outage does not stop inference",
+    "command": "$env:API_PORT='18004'; docker compose -p a02-direct stop redis; Invoke-RestMethod http://localhost:18004/health | ConvertTo-Json -Compress; Invoke-RestMethod -Uri http://localhost:18004/predict -Method Post -ContentType application/json -InFile sample.json | ConvertTo-Json -Compress; docker compose -p a02-direct logs --tail 5 api; docker compose -p a02-direct start redis",
+    "path": "evidence\\direct-screenshots\\task13-1793292541950756500-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 15,
+    "title": "Counter survives down and up",
+    "command": "$env:API_PORT='18004'; docker compose -p a02-direct down; docker compose -p a02-direct up -d --wait; $actual=(Invoke-RestMethod http://localhost:18004/stats).predictions; $expected=[int](Get-Content evidence/direct-count.txt); Write-Output \"Persisted: $actual; expected: $expected\"; if($actual -ne $expected){exit 1}",
+    "path": "evidence\\direct-screenshots\\task15-1793292551567167500-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 15,
+    "title": "Counter survives down and up",
+    "command": "$env:API_PORT='18004'; docker compose -p a02-direct down; docker compose -p a02-direct up -d --wait; $actual=(Invoke-RestMethod http://localhost:18004/stats).predictions; $expected=[int](Get-Content evidence/direct-count.txt); Write-Output \"Persisted: $actual; expected: $expected\"; if($actual -ne $expected){exit 1}",
+    "path": "evidence\\direct-screenshots\\task15-1793292551567167500-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 15,
+    "title": "Removing the volume resets the counter",
+    "command": "$env:API_PORT='18004'; docker compose -p a02-direct down -v; docker compose -p a02-direct up -d --wait; Invoke-RestMethod http://localhost:18004/stats | ConvertTo-Json; docker compose -p a02-direct ps",
+    "path": "evidence\\direct-screenshots\\task15-1793292565017932100-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 15,
+    "title": "Removing the volume resets the counter",
+    "command": "$env:API_PORT='18004'; docker compose -p a02-direct down -v; docker compose -p a02-direct up -d --wait; Invoke-RestMethod http://localhost:18004/stats | ConvertTo-Json; docker compose -p a02-direct ps",
+    "path": "evidence\\direct-screenshots\\task15-1793292565017932100-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 15,
+    "title": "Removing the volume resets the counter",
+    "command": "$env:API_PORT='18004'; docker compose -p a02-direct down -v; docker compose -p a02-direct up -d --wait; Invoke-RestMethod http://localhost:18004/stats | ConvertTo-Json; docker compose -p a02-direct ps",
+    "path": "evidence\\direct-screenshots\\task15-1793292565017932100-03.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "First run pulls the missing tag; second run uses the cache",
+    "command": "docker rm a02-hello1 a02-hello2; docker rmi hello-world:linux; docker run --rm hello-world:linux; docker run --rm hello-world:linux",
+    "path": "evidence\\direct-screenshots\\task01-1793292654870996300-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "First run pulls the missing tag; second run uses the cache",
+    "command": "docker rm a02-hello1 a02-hello2; docker rmi hello-world:linux; docker run --rm hello-world:linux; docker run --rm hello-world:linux",
+    "path": "evidence\\direct-screenshots\\task01-1793292654870996300-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 1,
+    "title": "First run pulls the missing tag; second run uses the cache",
+    "command": "docker rm a02-hello1 a02-hello2; docker rmi hello-world:linux; docker run --rm hello-world:linux; docker run --rm hello-world:linux",
+    "path": "evidence\\direct-screenshots\\task01-1793292654870996300-03.png",
+    "exit_code": 0
+  },
+  {
+    "task": 16,
+    "title": "Public Docker Hub release tags and digests",
+    "command": "$a=Invoke-RestMethod https://hub.docker.com/v2/repositories/asad3390/breast-cancer-triage-api/tags/1.0.0; $b=Invoke-RestMethod https://hub.docker.com/v2/repositories/asad3390/breast-cancer-triage-api/tags/latest; $a,$b | Select-Object name,digest,full_size | Format-List; if($a.digest -ne $b.digest){exit 1}",
+    "path": "evidence\\direct-screenshots\\task16-1793292676427289500-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 16,
+    "title": "Push both release tags from verified release digest",
+    "command": "docker tag asad3390/breast-cancer-triage-api@sha256:e1bbe9a76635275b23da686ef3f2c2c902e75ac268174d736cf0c0e70bdad443 asad3390/breast-cancer-triage-api:1.0.0; docker tag asad3390/breast-cancer-triage-api:1.0.0 asad3390/breast-cancer-triage-api:latest; docker push asad3390/breast-cancer-triage-api:1.0.0; docker push asad3390/breast-cancer-triage-api:latest",
+    "path": "evidence\\direct-screenshots\\task16-1793292679156023200-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Published stack and matching image digest",
+    "command": "docker compose -f ../clean-room/docker-compose.hub.yml ps; Get-ChildItem ../clean-room -Force | Select-Object Name; docker image inspect --format '{{json .RepoDigests}}' asad3390/breast-cancer-triage-api:1.0.0; python scripts/probe_api.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292692216453100-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Published stack and matching image digest",
+    "command": "docker compose -f ../clean-room/docker-compose.hub.yml ps; Get-ChildItem ../clean-room -Force | Select-Object Name; docker image inspect --format '{{json .RepoDigests}}' asad3390/breast-cancer-triage-api:1.0.0; python scripts/probe_api.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292692216453100-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-01.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-02.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-03.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-04.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-05.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-06.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-07.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-08.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-09.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-10.png",
+    "exit_code": 1
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-11.png",
+    "exit_code": 1
+  },
+  {
+    "task": 16,
+    "title": "Public Docker Hub release tags and digests",
+    "command": "$a=Invoke-RestMethod https://hub.docker.com/v2/repositories/asad3390/breast-cancer-triage-api/tags/1.0.0; $b=Invoke-RestMethod https://hub.docker.com/v2/repositories/asad3390/breast-cancer-triage-api/tags/latest; $a,$b | Select-Object name,digest,full_size | Format-List; if($a.digest -ne $b.digest){exit 1}",
+    "path": "evidence\\direct-screenshots\\task16-1793292805731349000-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 16,
+    "title": "Push both verified release tags",
+    "command": "docker tag asad3390/breast-cancer-triage-api:1.0.0 asad3390/breast-cancer-triage-api:latest; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; docker push asad3390/breast-cancer-triage-api:1.0.0; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; docker push asad3390/breast-cancer-triage-api:latest",
+    "path": "evidence\\direct-screenshots\\task16-1793292807928241200-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Published stack and matching image digest",
+    "command": "docker compose -f ../clean-room/docker-compose.hub.yml ps; Get-ChildItem ../clean-room -Force | Select-Object Name; docker image inspect --format '{{json .RepoDigests}}' asad3390/breast-cancer-triage-api:1.0.0; python scripts/probe_api.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292816907046500-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Published stack and matching image digest",
+    "command": "docker compose -f ../clean-room/docker-compose.hub.yml ps; Get-ChildItem ../clean-room -Force | Select-Object Name; docker image inspect --format '{{json .RepoDigests}}' asad3390/breast-cancer-triage-api:1.0.0; python scripts/probe_api.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292816907046500-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292819299450200-01.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292819299450200-02.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292819299450200-03.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292819299450200-04.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292819299450200-05.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292819299450200-06.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292819299450200-07.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292819299450200-08.png",
+    "exit_code": 0
+  },
+  {
+    "task": 17,
+    "title": "Remove assignment images and verify anonymous clean-room pull",
+    "command": "python scripts/cleanroom_live.py",
+    "path": "evidence\\direct-screenshots\\task17-1793292819299450200-09.png",
+    "exit_code": 0
+  }
+]

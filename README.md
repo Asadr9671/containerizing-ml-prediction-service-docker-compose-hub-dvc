@@ -9,9 +9,8 @@ Submission repositories:
 - GitHub: https://github.com/Asadr9671/containerizing-ml-prediction-service-docker-compose-hub-dvc
 - Docker Hub: https://hub.docker.com/r/asad3390/breast-cancer-triage-api
 
-Docker Hub tags `1.0.0` and `latest` have been published and anonymously pulled in
-the clean-room verification. GitHub publication status is recorded separately in
-the PDF; the URL above is the target repository until authentication completes.
+The GitHub repository is public. Docker Hub tags `1.0.0` and `latest` have been
+published and anonymously pulled in the clean-room verification.
 
 ## Reproduce from a fresh clone
 
@@ -171,9 +170,12 @@ code or dataset. `latest` is an alias for our own release, never a third-party b
 
 ## Evidence and references
 
-`evidence/commands.jsonl` preserves actual command strings, combined stdout/stderr,
-exit status, execution duration and timestamps. The report screenshots capture these
-recorded execution transcripts in a browser, plus the live Swagger and nginx pages.
+`evidence/commands.jsonl` preserves the initial execution records.
+`evidence/direct_commands.jsonl` records the repeated live verification, and
+`evidence/direct-screenshots/` contains direct captures of the actual Windows terminal
+window. Commands and their output are paginated in that terminal for readability.
+The final report uses these original terminal screenshots plus real browser captures
+of Swagger, nginx, and Docker Hub. No AI-generated images are used.
 Expected failure demonstrations are labeled; incomplete publishing steps must not be
 treated as successful evidence. `scripts/milestone*.py` record the original exercises;
 they create named resources and commits and are not intended as idempotent setup tools.
