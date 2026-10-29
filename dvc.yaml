@@ -1,0 +1,20 @@
+stages:
+  train:
+    cmd: python -m training.train
+    deps:
+      - data/raw/breast_cancer.csv
+      - training/train.py
+      - requirements-train.txt
+    params:
+      - seed
+      - test_size
+      - cv_folds
+      - model_version
+      - logistic
+      - forest
+    outs:
+      - artifacts/model.joblib
+      - artifacts/model_card.json
+    metrics:
+      - metrics.json:
+          cache: false
