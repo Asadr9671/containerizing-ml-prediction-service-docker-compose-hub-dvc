@@ -76,3 +76,7 @@ def stats():
         return {'predictions': int(app.state.redis.get('predictions') or 0), 'counting_enabled': True}
     except redis.RedisError:
         raise HTTPException(status_code=503, detail='Prediction counter unavailable')
+
+# Application-only rebuild demonstration.
+
+# Application-only rebuild demonstration.

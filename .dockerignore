@@ -1,0 +1,16 @@
+.git
+.dvc
+.env
+.venv
+**/__pycache__
+**/*.pyc
+artifacts
+dvc-remote
+evidence
+scripts
+tests
+*.pdf
+*.md
+data/raw/*.dvc
+.pytest_cache
+pytest-cache-files-*

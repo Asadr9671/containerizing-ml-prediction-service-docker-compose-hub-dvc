@@ -1,0 +1,11 @@
+FROM ubuntu:22.04
+WORKDIR /app
+RUN apt-get update && apt-get install -y python3 python3-pip
+COPY . .
+RUN pip3 install -r requirements-train.txt -r requirements-serve.txt
+ARG MODEL_VERSION=1.0.0
+ARG GIT_SHA=local
+ENV MODEL_VERSION=${MODEL_VERSION} GIT_SHA=${GIT_SHA} PYTHONUNBUFFERED=1
+RUN python3 -m training.train --model-version ${MODEL_VERSION}
+EXPOSE 8000
+CMD ["python3", "-m", "app.server", "--host", "0.0.0.0", "--port", "8000"]
