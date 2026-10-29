@@ -1,0 +1,16 @@
+[
+  {
+    "version": "v1",
+    "git_commit": "4a7d11ce4f290c711f3974cf2d73587d097038bb",
+    "dvc_hash": "b154f6a78a166306105a372ea2344899",
+    "rows": 569,
+    "bytes": 121385
+  },
+  {
+    "version": "v2",
+    "git_commit": "e809627dfe581650c87169cc977f52527dae63d4",
+    "dvc_hash": "10ef622c5b4c77b4b86abcb40eb024e6",
+    "rows": 539,
+    "bytes": 115096
+  }
+]

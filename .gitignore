@@ -6,3 +6,5 @@ __pycache__/
 /evidence/screenshots/
 /evidence/html/
 *.pdf
+.pytest_cache/
+pytest-cache-files-*/

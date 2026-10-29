@@ -1,0 +1,9 @@
+{
+  "image": "asad3390/breast-cancer-triage-api",
+  "tags": {
+    "1.0.0": "sha256:e1bbe9a76635275b23da686ef3f2c2c902e75ac268174d736cf0c0e70bdad443",
+    "latest": "sha256:e1bbe9a76635275b23da686ef3f2c2c902e75ac268174d736cf0c0e70bdad443"
+  },
+  "anonymous_pull": true,
+  "clean_room_prediction": true
+}

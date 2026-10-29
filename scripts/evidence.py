@@ -4,13 +4,17 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import time
+
+sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT.parent / '.tools'
 os.environ['PATH'] = str(TOOLS/'python') + os.pathsep + str(TOOLS/'python/Scripts') + os.pathsep + str(TOOLS/'git/cmd') + os.pathsep + os.environ['PATH']
 os.environ['PYTHONUTF8'] = '1'
 os.environ['DVC_NO_ANALYTICS'] = 'true'
+os.environ['DVC_SITE_CACHE_DIR'] = str(TOOLS/'dvc-site-cache')
 os.chdir(ROOT)
 
 def run(task, args, expected=0, cwd=None):

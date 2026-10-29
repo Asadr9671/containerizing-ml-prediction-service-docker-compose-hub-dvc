@@ -1,0 +1,4 @@
+* text=auto eol=lf
+dvc-remote/** -text
+*.png binary
+*.pdf binary

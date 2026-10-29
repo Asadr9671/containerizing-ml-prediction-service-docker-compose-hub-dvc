@@ -1,0 +1,18 @@
+[
+  {
+    "image": "naive",
+    "base": "ubuntu:22.04",
+    "size_bytes": 1402588049,
+    "cold_seconds": 186.482,
+    "rebuild_seconds": 85.204,
+    "user": "root"
+  },
+  {
+    "image": "1.0.0",
+    "base": "python:3.12.10-slim-bookworm",
+    "size_bytes": 590348808,
+    "cold_seconds": 85.71,
+    "rebuild_seconds": 4.38,
+    "user": "10001:10001"
+  }
+]

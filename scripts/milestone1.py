@@ -18,7 +18,7 @@ run(5, ['git', 'commit', '-m', 'Milestone 1: track original 569-row dataset and 
 run(5, ['git', 'tag', 'data-v1'])
 run(5, ['git', 'ls-files', 'data/raw'])
 py(5, "from pathlib import Path; Path('data/raw/breast_cancer.csv').unlink(); print('Removed working CSV to demonstrate dvc pull restore')")
-run(5, ['dvc', 'pull'])
+run(5, ['dvc', 'pull', 'data/raw/breast_cancer.csv.dvc'])
 table = []
 def snapshot(version):
     import yaml
