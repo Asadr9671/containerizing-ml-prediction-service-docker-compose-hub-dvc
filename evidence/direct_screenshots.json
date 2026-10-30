@@ -1,26 +1,5 @@
 [
   {
-    "task": 1,
-    "title": "Docker client and engine versions",
-    "command": "docker version",
-    "path": "evidence\\direct-screenshots\\task01-1793291820533062500-01.png",
-    "exit_code": 0
-  },
-  {
-    "task": 1,
-    "title": "Docker client and engine versions",
-    "command": "docker version",
-    "path": "evidence\\direct-screenshots\\task01-1793291882036636600-01.png",
-    "exit_code": 0
-  },
-  {
-    "task": 1,
-    "title": "Docker client and engine versions",
-    "command": "docker version",
-    "path": "evidence\\direct-screenshots\\task01-1793291882036636600-02.png",
-    "exit_code": 0
-  },
-  {
     "task": 19,
     "title": "Create and publish public GitHub source repository",
     "command": "& 'C:\\Program Files\\GitHub CLI\\gh.exe' repo create Asadr9671/containerizing-ml-prediction-service-docker-compose-hub-dvc --public --source . --remote origin --push",
@@ -483,13 +462,6 @@
     "exit_code": 0
   },
   {
-    "task": 16,
-    "title": "Push both release tags from verified release digest",
-    "command": "docker tag asad3390/breast-cancer-triage-api@sha256:e1bbe9a76635275b23da686ef3f2c2c902e75ac268174d736cf0c0e70bdad443 asad3390/breast-cancer-triage-api:1.0.0; docker tag asad3390/breast-cancer-triage-api:1.0.0 asad3390/breast-cancer-triage-api:latest; docker push asad3390/breast-cancer-triage-api:1.0.0; docker push asad3390/breast-cancer-triage-api:latest",
-    "path": "evidence\\direct-screenshots\\task16-1793292679156023200-01.png",
-    "exit_code": 0
-  },
-  {
     "task": 17,
     "title": "Published stack and matching image digest",
     "command": "docker compose -f ../clean-room/docker-compose.hub.yml ps; Get-ChildItem ../clean-room -Force | Select-Object Name; docker image inspect --format '{{json .RepoDigests}}' asad3390/breast-cancer-triage-api:1.0.0; python scripts/probe_api.py",
@@ -502,83 +474,6 @@
     "command": "docker compose -f ../clean-room/docker-compose.hub.yml ps; Get-ChildItem ../clean-room -Force | Select-Object Name; docker image inspect --format '{{json .RepoDigests}}' asad3390/breast-cancer-triage-api:1.0.0; python scripts/probe_api.py",
     "path": "evidence\\direct-screenshots\\task17-1793292692216453100-02.png",
     "exit_code": 0
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-01.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-02.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-03.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-04.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-05.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-06.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-07.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-08.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-09.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-10.png",
-    "exit_code": 1
-  },
-  {
-    "task": 17,
-    "title": "Remove assignment images and verify anonymous clean-room pull",
-    "command": "python scripts/cleanroom_live.py",
-    "path": "evidence\\direct-screenshots\\task17-1793292694632039200-11.png",
-    "exit_code": 1
   },
   {
     "task": 16,

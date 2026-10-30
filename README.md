@@ -1,5 +1,9 @@
 # Containerizing an ML Prediction Service with Docker, Docker Compose, Docker Hub and DVC
 
+For the implementation explanation and a step-by-step Windows/VS Code terminal
+guide, start with [WALKTHROUGH.md](WALKTHROUGH.md). It includes the existing workspace
+setup, all run modes, assignment demonstrations, publishing, and troubleshooting.
+
 MLOps Assignment 02: Meridian Diagnostics educational breast-cancer triage API.
 This is an educational exercise, not a medical device. Dataset target 0 is malignant;
 the API reports the probability of **class 0**, and labels it malignant when probability
@@ -69,9 +73,11 @@ the recorded training metrics.
 
 ```powershell
 git checkout data-v1 -- data/raw/breast_cancer.csv.dvc
+dvc pull data/raw/breast_cancer.csv.dvc
 dvc checkout data/raw/breast_cancer.csv.dvc
 python -c "import pandas as pd; print(len(pd.read_csv('data/raw/breast_cancer.csv')))"
 git checkout data-v2 -- data/raw/breast_cancer.csv.dvc
+dvc pull data/raw/breast_cancer.csv.dvc
 dvc checkout data/raw/breast_cancer.csv.dvc
 dvc repro
 dvc repro
